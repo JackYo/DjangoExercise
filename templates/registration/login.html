@@ -1,5 +1,5 @@
 {% extends "base_generic.html" %}
-
+{% load socialaccount %}
 {% block content %}
 
   {% if form.errors %}
@@ -32,6 +32,9 @@
   </form>
   
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p style="margin-top: 20px;"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+  {# social account #}
   
+  <p><a href="{% provider_login_url 'github' %}">Github登入</a></p>
 {% endblock %}
